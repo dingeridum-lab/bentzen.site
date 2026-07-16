@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bentzen — Build. Design. Elevate.</title>
+<meta name="description" content="Bentzen is a premium digital agency specializing in App Development, Website Development, Custom Software, and Digital Advertising. Based in Ahmedabad, Gujarat, India.">
+<meta name="keywords" content="Bentzen, app development, website development, software, Facebook ads, Google ads, digital agency, Ahmedabad">
+<meta property="og:title" content="Bentzen — Build. Design. Elevate.">
+<meta property="og:description" content="Premium digital solutions for forward-thinking brands.">
+<meta property="og:image" content="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-dot" id="curDot"></div>
+
+<!-- ── LOADER ── -->
+<div class="loader" id="loader">
+  <div class="loader-code-bg" id="loaderCodeBg"></div>
+  <div class="loader-center">
+    <div class="loader-logo-wrap" id="loaderLogoWrap">
+      <div class="loader-logo-ring" id="loaderRing1"></div>
+      <div class="loader-logo-ring" id="loaderRing2"></div>
+      <div class="loader-logo-ring" id="loaderRing3"></div>
+      <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" class="loader-logo-img" id="loaderLogoImg" alt="Bentzen">
+      <div class="loader-logo-glow" id="logoGlow"></div>
+    </div>
+    <div class="loader-tagline" id="loaderTagline">
+      <span class="tagline-word" data-word="Build">Build</span>
+      <span class="tagline-dot">•</span>
+      <span class="tagline-word" data-word="Design">Design</span>
+      <span class="tagline-dot">•</span>
+      <span class="tagline-word" data-word="Elevate">Elevate</span>
+    </div>
+    <div class="loader-line-wrap"><div class="loader-line" id="lLine"></div></div>
+    <div class="loader-pct" id="lPct">000</div>
+  </div>
+</div>
+
+<!-- Global UI overlays -->
+<div class="prog" id="prog"></div>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div class="glow g1" id="gw1"></div>
+<div class="glow g2" id="gw2"></div>
+<div class="scroll-ind" id="sInd"><span>Scroll</span><div class="scroll-ln"></div></div>
+
+<!-- Canvas for THREE.js -->
+<canvas id="scene-canvas"></canvas>
+
+<!-- ── NAV ── -->
+<nav class="nav" id="mainNav">
+  <div class="nav-brand">
+    <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" alt="Bentzen" class="nav-logo">
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="#hero" class="nav-link">Home</a>
+    <a href="#services" class="nav-link">Services</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#reviews" class="nav-link">Reviews</a>
+    <a href="#blog" class="nav-link">Blog</a>
+    <a href="#contact" class="nav-link">Contact</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#contact" class="nav-cta">Get Started</a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" class="mobile-link">Home</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#portfolio" class="mobile-link">Portfolio</a>
+  <a href="#reviews" class="mobile-link">Reviews</a>
+  <a href="#blog" class="mobile-link">Blog</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#contact" class="mobile-cta">Get Started</a>
+</div>
+
+<!-- ── SCROLL WRAP ── -->
+<div class="scroll-wrap" id="scrollWrap">
+
+  <!-- ══ HERO ══ -->
+  <section class="sec full-sec" id="hero" data-sec="hero">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80')"></div>
+      <div class="hero-slider-overlay"></div>
+      <div class="hero-slider-dots" id="sliderDots"></div>
+    </div>
+    <div class="hero" id="h0">
+      <div class="hero-lbl">Digital Agency — Est. 2026 · Ahmedabad, India</div>
+      <h1>We <em>Build</em>, Design &amp; <em>Elevate</em> Your Digital Presence</h1>
+      <p>Bentzen is a premium full-service digital agency delivering world-class app development, web solutions, custom software, and performance marketing that transforms brands and drives measurable results.</p>
+      <div class="hero-btns">
+        <a href="#services" class="hero-cta">Explore Services <i class="fas fa-arrow-right"></i></a>
+        <a href="#portfolio" class="hero-cta-ghost">View Portfolio <i class="fas fa-external-link-alt"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="stat-num" data-target="150">0</span><span class="stat-plus">+</span><span class="stat-label">Projects</span></div>
+        <div class="hero-stat"><span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span><span class="stat-label">Clients</span></div>
+        <div class="hero-stat"><span class="stat-num" data-target="8">0</span><span class="stat-plus"></span><span class="stat-label">Services</span></div>
+        <div class="hero-stat"><span class="stat-num" data-target="100">0</span><span class="stat-plus">%</span><span class="stat-label">Satisfaction</span></div>
+      </div>
+    </div>
+    <!-- Floating elements -->
+    <div class="float-el fe1"><i class="fas fa-code"></i></div>
+    <div class="float-el fe2"><i class="fas fa-mobile-alt"></i></div>
+    <div class="float-el fe3"><i class="fas fa-chart-line"></i></div>
+    <div class="float-el fe4"><i class="fas fa-bullseye"></i></div>
+  </section>
+
+  <!-- ══ SERVICES ══ -->
+  <section class="sec content-sec" id="services" data-sec="services">
+    <div class="section-header reveal-up">
+      <div class="section-tag">What We Do</div>
+      <h2 class="section-title">Premium <em>Services</em></h2>
+      <p class="section-sub">End-to-end digital solutions engineered for impact, built for performance, designed for growth.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="svc-card reveal-up" data-service="app-dev">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fas fa-mobile-screen-button"></i></div>
+        <div class="svc-card-num">01</div>
+        <h3>App Development</h3>
+        <p>Native and cross-platform mobile applications crafted for iOS and Android with performance-first architecture and stunning UX.</p>
+        <div class="svc-tags"><span>iOS</span><span>Android</span><span>React Native</span><span>Flutter</span></div>
+        <button class="svc-learn-btn" onclick="openModal('app-dev')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="web-dev">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fas fa-globe"></i></div>
+        <div class="svc-card-num">02</div>
+        <h3>Website Development</h3>
+        <p>Premium, high-performance websites built with modern technologies — from elegant landing pages to complex web platforms.</p>
+        <div class="svc-tags"><span>React</span><span>Next.js</span><span>WebGL</span><span>CMS</span></div>
+        <button class="svc-learn-btn" onclick="openModal('web-dev')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="software-dev">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fas fa-code-branch"></i></div>
+        <div class="svc-card-num">03</div>
+        <h3>Custom Software</h3>
+        <p>Bespoke software solutions tailored to your unique business processes — scalable, secure, and enterprise-ready.</p>
+        <div class="svc-tags"><span>SaaS</span><span>API</span><span>Cloud</span><span>Enterprise</span></div>
+        <button class="svc-learn-btn" onclick="openModal('software-dev')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="fb-ads">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fab fa-facebook-f"></i></div>
+        <div class="svc-card-num">04</div>
+        <h3>Facebook Ads</h3>
+        <p>Data-driven Facebook and Meta advertising campaigns with advanced targeting, creative optimization, and measurable ROAS.</p>
+        <div class="svc-tags"><span>Meta Ads</span><span>Retargeting</span><span>Lookalike</span><span>Creative</span></div>
+        <button class="svc-learn-btn" onclick="openModal('fb-ads')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="google-ads">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fab fa-google"></i></div>
+        <div class="svc-card-num">05</div>
+        <h3>Google Ads</h3>
+        <p>Strategic Google Ads management across Search, Display, Shopping, and YouTube to maximize visibility and conversion rates.</p>
+        <div class="svc-tags"><span>Search</span><span>Display</span><span>Shopping</span><span>YouTube</span></div>
+        <button class="svc-learn-btn" onclick="openModal('google-ads')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="ig-ads">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fab fa-instagram"></i></div>
+        <div class="svc-card-num">06</div>
+        <h3>Instagram Ads</h3>
+        <p>Visually compelling Instagram ad campaigns that capture attention, build brand equity, and drive high-intent traffic.</p>
+        <div class="svc-tags"><span>Reels Ads</span><span>Stories</span><span>Carousel</span><span>Influencer</span></div>
+        <button class="svc-learn-btn" onclick="openModal('ig-ads')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="whatsapp-auto">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="svc-card-num">07</div>
+        <h3>WhatsApp Automation</h3>
+        <p>Intelligent WhatsApp Business automation with chatbots, broadcast sequences, CRM integrations, and 24/7 lead nurturing.</p>
+        <div class="svc-tags"><span>Chatbot</span><span>Broadcast</span><span>CRM</span><span>API</span></div>
+        <button class="svc-learn-btn" onclick="openModal('whatsapp-auto')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <div class="svc-card reveal-up" data-service="ugc-ads">
+        <div class="svc-card-glow"></div>
+        <div class="svc-card-icon"><i class="fas fa-video"></i></div>
+        <div class="svc-card-num">08</div>
+        <h3>UGC Ads</h3>
+        <p>Authentic, high-converting user-generated content ad creatives that build trust, drive engagement, and boost conversion rates.</p>
+        <div class="svc-tags"><span>Video Ads</span><span>Creators</span><span>Authentic</span><span>Performance</span></div>
+        <button class="svc-learn-btn" onclick="openModal('ugc-ads')">Learn More <i class="fas fa-arrow-right"></i></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section class="sec content-sec about-sec" id="about" data-sec="about">
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-img-wrap">
+          <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" alt="Bentzen" class="about-logo-big">
+          <div class="about-img-ring"></div>
+          <div class="about-img-ring r2"></div>
+        </div>
+        <div class="about-badges">
+          <div class="about-badge"><i class="fas fa-rocket"></i><span>150+ Projects</span></div>
+          <div class="about-badge"><i class="fas fa-star"></i><span>4.9 Rating</span></div>
+          <div class="about-badge"><i class="fas fa-shield-halved"></i><span>Trusted Agency</span></div>
+        </div>
+      </div>
+      <div class="about-content reveal-right">
+        <div class="section-tag">Who We Are</div>
+        <h2 class="section-title">Built to <em>Elevate</em> Your Brand</h2>
+        <p class="about-intro">Bentzen is a premium full-service digital agency headquartered in Ahmedabad, Gujarat, India. We specialize in transforming ambitious ideas into exceptional digital products and experiences that drive real business outcomes.</p>
+        <p class="about-body">Founded with a singular vision — to bridge the gap between world-class design and cutting-edge technology — Bentzen brings together a multidisciplinary team of developers, designers, strategists, and marketers. We work with startups, SMEs, and enterprise clients across industries, delivering solutions that are not just visually stunning but strategically effective.</p>
+        <p class="about-body">Our philosophy is simple: every pixel, every line of code, every ad campaign must serve a purpose. We don't just build products; we engineer growth engines. From mobile apps that redefine user experience to advertising campaigns that deliver measurable ROI, Bentzen is your end-to-end digital partner.</p>
+        <div class="about-values">
+          <div class="about-value"><i class="fas fa-gem"></i><div><strong>Premium Quality</strong><p>Uncompromising standards in every deliverable</p></div></div>
+          <div class="about-value"><i class="fas fa-bolt"></i><div><strong>Agile Delivery</strong><p>Fast, iterative, and transparent development</p></div></div>
+          <div class="about-value"><i class="fas fa-handshake"></i><div><strong>Client Partnership</strong><p>Long-term relationships built on trust and results</p></div></div>
+        </div>
+        <a href="#contact" class="hero-cta">Work With Us <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PORTFOLIO ══ -->
+  <section class="sec content-sec" id="portfolio" data-sec="portfolio">
+    <div class="section-header reveal-up">
+      <div class="section-tag">Our Work</div>
+      <h2 class="section-title">Featured <em>Portfolio</em></h2>
+      <p class="section-sub">Explore our curated selection of projects that showcase our craft, creativity, and technical excellence.</p>
+    </div>
+    <div class="portfolio-grid">
+
+      <div class="port-card reveal-up" data-pdf="https://pdflink.to/5c486145/">
+        <div class="port-card-img" style="background:linear-gradient(135deg,#1a0e05 0%,#3d1f08 50%,#c8956c22 100%)">
+          <div class="port-card-overlay">
+            <div class="port-icon"><i class="fas fa-mobile-alt"></i></div>
+          </div>
+        </div>
+        <div class="port-card-content">
+          <span class="port-cat">Mobile Application</span>
+          <h3>Premium E-Commerce App</h3>
+          <p>Full-stack mobile shopping experience with AR try-on, seamless payments, and real-time inventory sync.</p>
+          <div class="port-actions">
+            <button class="port-view-btn" onclick="openPortfolio('https://pdflink.to/5c486145/')">View Case Study <i class="fas fa-external-link-alt"></i></button>
+            <button class="port-dl-btn" onclick="downloadPortfolio('https://pdflink.to/5c486145/','Portfolio-01.pdf')"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card reveal-up" data-pdf="https://pdflink.to/b35e1a88/">
+        <div class="port-card-img" style="background:linear-gradient(135deg,#050a1a 0%,#0d1f3d 50%,#5c8fd422 100%)">
+          <div class="port-card-overlay">
+            <div class="port-icon"><i class="fas fa-globe"></i></div>
+          </div>
+        </div>
+        <div class="port-card-content">
+          <span class="port-cat">Website Development</span>
+          <h3>Enterprise SaaS Platform</h3>
+          <p>Scalable B2B SaaS dashboard with advanced analytics, real-time data visualization, and role-based access control.</p>
+          <div class="port-actions">
+            <button class="port-view-btn" onclick="openPortfolio('https://pdflink.to/b35e1a88/')">View Case Study <i class="fas fa-external-link-alt"></i></button>
+            <button class="port-dl-btn" onclick="downloadPortfolio('https://pdflink.to/b35e1a88/','Portfolio-02.pdf')"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card reveal-up" data-pdf="https://pdflink.to/9d753cf7/">
+        <div class="port-card-img" style="background:linear-gradient(135deg,#1a0510 0%,#3d0820 50%,#d45c8f22 100%)">
+          <div class="port-card-overlay">
+            <div class="port-icon"><i class="fas fa-chart-pie"></i></div>
+          </div>
+        </div>
+        <div class="port-card-content">
+          <span class="port-cat">Digital Marketing</span>
+          <h3>Performance Ad Campaigns</h3>
+          <p>Multi-channel advertising strategy delivering 5x ROAS with precision targeting across Meta, Google, and Instagram.</p>
+          <div class="port-actions">
+            <button class="port-view-btn" onclick="openPortfolio('https://pdflink.to/9d753cf7/')">View Case Study <i class="fas fa-external-link-alt"></i></button>
+            <button class="port-dl-btn" onclick="downloadPortfolio('https://pdflink.to/9d753cf7/','Portfolio-03.pdf')"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-card reveal-up" data-pdf="https://pdflink.to/049c57fb/">
+        <div class="port-card-img" style="background:linear-gradient(135deg,#051a0d 0%,#0d3d1f 50%,#8fd4a522 100%)">
+          <div class="port-card-overlay">
+            <div class="port-icon"><i class="fas fa-robot"></i></div>
+          </div>
+        </div>
+        <div class="port-card-content">
+          <span class="port-cat">Automation</span>
+          <h3>WhatsApp CRM Integration</h3>
+          <p>Intelligent WhatsApp automation system with AI chatbot, lead qualification, and CRM sync for 10x sales efficiency.</p>
+          <div class="port-actions">
+            <button class="port-view-btn" onclick="openPortfolio('https://pdflink.to/049c57fb/')">View Case Study <i class="fas fa-external-link-alt"></i></button>
+            <button class="port-dl-btn" onclick="downloadPortfolio('https://pdflink.to/049c57fb/','Portfolio-04.pdf')"><i class="fas fa-download"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ REVIEWS ══ -->
+  <section class="sec content-sec reviews-sec" id="reviews" data-sec="reviews">
+    <div class="section-header reveal-up">
+      <div class="section-tag">Client Love</div>
+      <h2 class="section-title">What Clients <em>Say</em></h2>
+    </div>
+    <div class="reviews-track-wrap">
+      <div class="reviews-track" id="reviewsTrack">
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Bentzen completely transformed our online presence. Their attention to detail, technical expertise, and commitment to quality is unmatched. Our website traffic increased by 300% within three months."</p>
+          <div class="review-author">
+            <div class="review-avatar"><i class="fas fa-laptop"></i></div>
+            <div><strong>Technozone Computer Class</strong><span>Education Technology</span></div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★<span class="star-half">★</span></div>
+          <p class="review-text">"Exceptional work on our industrial equipment website. The team understood our B2B requirements perfectly and delivered a platform that generates quality leads every day. Highly professional."</p>
+          <div class="review-author">
+            <div class="review-avatar"><i class="fas fa-industry"></i></div>
+            <div><strong>Adinath Equipments Pvt. Ltd.</strong><span>Industrial Equipment</span></div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Working with Bentzen was a game-changer for our real estate business. Their digital marketing campaigns and property portal delivered outstanding results. Truly a premium agency experience."</p>
+          <div class="review-author">
+            <div class="review-avatar"><i class="fas fa-building"></i></div>
+            <div><strong>Divya Estate Management</strong><span>Real Estate</span></div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★<span class="star-half">★</span></div>
+          <p class="review-text">"Bentzen developed our custom ERP software with incredible precision. The system handles our complex thermal engineering workflows flawlessly. Their post-launch support is also excellent."</p>
+          <div class="review-author">
+            <div class="review-avatar"><i class="fas fa-fire"></i></div>
+            <div><strong>Industrial Thermal Engineers</strong><span>Thermal Engineering</span></div>
+          </div>
+        </div>
+
+        <!-- Duplicated for infinite loop -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Bentzen completely transformed our online presence. Their attention to detail, technical expertise, and commitment to quality is unmatched. Our website traffic increased by 300% within three months."</p>
+          <div class="review-author">
+            <div class="review-avatar"><i class="fas fa-laptop"></i></div>
+            <div><strong>Technozone Computer Class</strong><span>Education Technology</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★<span class="star-half">★</span></div>
+          <p class="review-text">"Exceptional work on our industrial equipment website. The team understood our B2B requirements perfectly and delivered a platform that generates quality leads every day. Highly professional."</p>
+          <div class="review-author">
+            <div class="review-avatar"><i class="fas fa-industry"></i></div>
+            <div><strong>Adinath Equipments Pvt. Ltd.</strong><span>Industrial Equipment</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BLOG ══ -->
+  <section class="sec content-sec" id="blog" data-sec="blog">
+    <div class="section-header reveal-up">
+      <div class="section-tag">Insights</div>
+      <h2 class="section-title">From Our <em>Blog</em></h2>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card featured reveal-up">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1a0e05,#c8956c33)">
+          <div class="blog-cat">Digital Strategy</div>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta"><span><i class="fas fa-calendar"></i> July 2026</span><span><i class="fas fa-clock"></i> 8 min read</span></div>
+          <h3>Why Every Business Needs a Comprehensive Digital Strategy in 2026</h3>
+          <p>In today's hyper-connected world, having a digital presence isn't optional — it's survival. But a presence alone is not enough. What separates thriving businesses from struggling ones is a cohesive, data-driven digital strategy that aligns technology, marketing, and brand identity toward a common growth objective...</p>
+          <button class="blog-read-btn" onclick="openBlogModal()">Read Article <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="blog-card reveal-up">
+        <div class="blog-img" style="background:linear-gradient(135deg,#050a1a,#5c8fd433)">
+          <div class="blog-cat">App Development</div>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta"><span><i class="fas fa-calendar"></i> June 2026</span><span><i class="fas fa-clock"></i> 6 min read</span></div>
+          <h3>Cross-Platform vs Native: Choosing the Right Mobile Strategy</h3>
+          <p>The debate between cross-platform and native app development continues to evolve. We break down the technical, financial, and experiential trade-offs...</p>
+          <button class="blog-read-btn" onclick="openBlogModal2()">Read Article <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="blog-card reveal-up">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1a0510,#d45c8f33)">
+          <div class="blog-cat">Advertising</div>
+        </div>
+        <div class="blog-content">
+          <div class="blog-meta"><span><i class="fas fa-calendar"></i> May 2026</span><span><i class="fas fa-clock"></i> 5 min read</span></div>
+          <h3>Maximizing ROAS: Advanced Meta Ads Strategies for 2026</h3>
+          <p>Return on Ad Spend is the ultimate KPI for any paid campaign. Discover how our advanced targeting and creative optimization frameworks consistently deliver 5x+ ROAS...</p>
+          <button class="blog-read-btn" onclick="openBlogModal3()">Read Article <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="sec content-sec" id="faq" data-sec="faq">
+    <div class="section-header reveal-up">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What services does Bentzen offer?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Bentzen offers a comprehensive suite of digital services including App Development (iOS & Android), Website Development, Custom Software Development, Facebook Ads, Google Ads, Instagram Ads, WhatsApp Automation, and UGC Ad production. We provide end-to-end digital solutions tailored to your business needs.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How long does it take to build a website or app?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Project timelines vary based on complexity. A standard business website typically takes 2–4 weeks. A custom web platform or mobile app can take 4–12 weeks. We provide detailed project timelines during the discovery phase and maintain transparent communication throughout the development process.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What is the cost of your services?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Our pricing is project-based and depends on scope, complexity, and requirements. We offer competitive pricing while maintaining premium quality. Please contact us via our inquiry form or WhatsApp to receive a customized quote for your project.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Do you work with businesses outside of Ahmedabad?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Absolutely! While we are headquartered in Ahmedabad, Gujarat, we work with clients across India and internationally. Our collaborative, remote-friendly workflow ensures seamless communication and project delivery regardless of geography.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Will I get a dedicated project manager?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Yes. Every client at Bentzen gets a dedicated project manager who serves as your single point of contact, ensuring clear communication, timely updates, and smooth project execution from kick-off to launch.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Do you provide post-launch support and maintenance?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Yes, we offer comprehensive post-launch support and maintenance packages. These include bug fixes, performance optimization, security updates, feature additions, and 24/7 technical support. We are long-term partners in your digital journey.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>What industries do you specialize in?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Bentzen has delivered projects across e-commerce, real estate, education, healthcare, industrial, hospitality, and professional services. Our adaptable approach allows us to understand domain nuances and deliver contextually relevant digital solutions.</p></div>
+      </div>
+      <div class="faq-item reveal-up">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>How do I get started with Bentzen?</span><i class="fas fa-plus faq-icon"></i></div>
+        <div class="faq-a"><p>Simply reach out via our Contact section, WhatsApp, or email. We'll schedule a free discovery call to understand your goals, after which we provide a detailed proposal and timeline. The process is quick, transparent, and commitment-free at the initial stage.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section class="sec content-sec contact-sec" id="contact" data-sec="contact">
+    <div class="section-header reveal-up">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Let's <em>Build</em> Together</h2>
+      <p class="section-sub">Ready to elevate your digital presence? We'd love to hear about your project.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form-wrap reveal-left">
+        <form class="contact-form" id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" name="name" placeholder="John Smith" required>
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" name="email" placeholder="john@company.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number (Optional)</label>
+              <input type="tel" name="phone" placeholder="+91 99999 00000">
+            </div>
+            <div class="form-group">
+              <label>Service Interested In *</label>
+              <select name="service" required>
+                <option value="">Select a service</option>
+                <option>App Development</option>
+                <option>Website Development</option>
+                <option>Custom Software Development</option>
+                <option>Facebook Ads</option>
+                <option>Google Ads</option>
+                <option>Instagram Ads</option>
+                <option>WhatsApp Automation</option>
+                <option>UGC Ads</option>
+                <option>Multiple Services</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label>Your Message *</label>
+            <textarea name="message" rows="5" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+          <div class="form-status" id="formStatus"></div>
+        </form>
+      </div>
+      <div class="contact-info-wrap reveal-right">
+        <div class="contact-info-card">
+          <h3>Contact Information</h3>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div><strong>Location</strong><p>Ahmedabad, Gujarat, India</p></div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope"></i>
+            <div><strong>Email</strong><a href="mailto:Buildwithbentzen1@gmail.com">Buildwithbentzen1@gmail.com</a></div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone"></i>
+            <div><strong>Phone</strong>
+              <a href="tel:+919998026204">+91 99980 26204</a>
+              <a href="tel:+919725314629">+91 97253 14629</a>
+            </div>
+          </div>
+          <div class="contact-wa-btns">
+            <a href="https://wa.me/919998026204" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp: 99980 26204</a>
+            <a href="https://wa.me/919725314629" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp: 97253 14629</a>
+          </div>
+          <div class="contact-social">
+            <a href="https://www.facebook.com/share/183HH4hJPS/" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/buildwithbentzen" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/withbentzen" target="_blank" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+          </div>
+        </div>
+        <div class="contact-map-wrap">
+          <div class="map-placeholder" onclick="openMap()">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Ahmedabad, Gujarat, India</p>
+            <button class="map-nav-btn"><i class="fas fa-directions"></i> Get Directions</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PRIVACY & TERMS (inline pages) ══ -->
+  <section class="sec content-sec legal-sec" id="privacy" data-sec="legal">
+    <div class="legal-content reveal-up">
+      <div class="section-tag">Legal</div>
+      <h2 class="section-title">Privacy <em>Policy</em></h2>
+      <div class="legal-body">
+        <p><em>Last Updated: July 2026</em></p>
+        <h4>1. Information We Collect</h4>
+        <p>Bentzen collects information you provide directly, including name, email, phone number, and project details when you submit inquiry forms or contact us. We also collect analytics data (device, browser, location, pages visited) to improve our services.</p>
+        <h4>2. How We Use Your Information</h4>
+        <p>We use collected information to respond to inquiries, deliver services, send project updates, improve our website, and occasionally send relevant service communications. We do not sell or rent your personal data to third parties.</p>
+        <h4>3. Data Security</h4>
+        <p>We implement industry-standard security measures to protect your data against unauthorized access, alteration, or disclosure. All sensitive communications are encrypted using SSL/TLS.</p>
+        <h4>4. Cookies</h4>
+        <p>We use cookies for analytics and session management. You may disable cookies in your browser settings, though some website features may not function correctly without them.</p>
+        <h4>5. Third-Party Services</h4>
+        <p>We may use third-party services (Google Analytics, Meta Pixel, etc.) that collect anonymized data subject to their own privacy policies.</p>
+        <h4>6. Your Rights</h4>
+        <p>You have the right to access, correct, or delete your personal information. Contact us at Buildwithbentzen1@gmail.com for any privacy-related requests.</p>
+        <h4>7. Contact</h4>
+        <p>For privacy inquiries: Buildwithbentzen1@gmail.com | +91 99980 26204</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec content-sec legal-sec" id="terms" data-sec="legal">
+    <div class="legal-content reveal-up">
+      <div class="section-tag">Legal</div>
+      <h2 class="section-title">Terms &amp; <em>Conditions</em></h2>
+      <div class="legal-body">
+        <p><em>Last Updated: July 2026</em></p>
+        <h4>1. Agreement to Terms</h4>
+        <p>By accessing or using Bentzen's website and services, you agree to be bound by these Terms & Conditions. If you disagree with any part, you may not use our services.</p>
+        <h4>2. Services</h4>
+        <p>Bentzen provides digital services including but not limited to app development, website development, custom software, and digital advertising. Specific deliverables, timelines, and pricing are defined in individual project agreements.</p>
+        <h4>3. Payment Terms</h4>
+        <p>Projects typically require a 50% advance payment before work commences, with the balance due upon project completion. Late payments may result in project delays or suspension.</p>
+        <h4>4. Intellectual Property</h4>
+        <p>Upon full payment, clients receive full ownership of the final deliverables. Bentzen retains the right to display completed work in its portfolio unless otherwise agreed in writing.</p>
+        <h4>5. Revisions and Changes</h4>
+        <p>Each project includes a defined number of revision rounds as specified in the project agreement. Additional revisions beyond the agreed scope will be billed separately.</p>
+        <h4>6. Limitation of Liability</h4>
+        <p>Bentzen's liability is limited to the amount paid for the specific service in question. We are not liable for indirect, incidental, or consequential damages.</p>
+        <h4>7. Termination</h4>
+        <p>Either party may terminate a project agreement with 14 days written notice. Payments for work completed up to the termination date are non-refundable.</p>
+        <h4>8. Governing Law</h4>
+        <p>These terms are governed by the laws of Gujarat, India. Any disputes shall be resolved through mediation in Ahmedabad.</p>
+        <h4>9. Contact</h4>
+        <p>For terms inquiries: Buildwithbentzen1@gmail.com | +91 99980 26204</p>
+      </div>
+    </div>
+  </section>
+
+</div><!-- end scroll-wrap -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" alt="Bentzen" class="footer-logo">
+      <p>Premium digital solutions for forward-thinking brands. Build. Design. Elevate.</p>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/share/183HH4hJPS/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/buildwithbentzen" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/withbentzen" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://wa.me/919998026204" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Services</h4>
+      <a href="#services">App Development</a>
+      <a href="#services">Website Development</a>
+      <a href="#services">Custom Software</a>
+      <a href="#services">Facebook Ads</a>
+      <a href="#services">Google Ads</a>
+      <a href="#services">Instagram Ads</a>
+      <a href="#services">WhatsApp Automation</a>
+      <a href="#services">UGC Ads</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Company</h4>
+      <a href="#about">About Us</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#blog">Blog</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="#faq">FAQ</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms & Conditions</a>
+    </div>
+    <div class="footer-links-col">
+      <h4>Contact</h4>
+      <a href="tel:+919998026204">+91 99980 26204</a>
+      <a href="tel:+919725314629">+91 97253 14629</a>
+      <a href="mailto:Buildwithbentzen1@gmail.com">Buildwithbentzen1@gmail.com</a>
+      <a href="https://wa.me/919998026204" target="_blank">WhatsApp Us</a>
+      <p style="margin-top:.8rem;color:var(--muted);font-size:.75rem">Ahmedabad, Gujarat, India</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p id="footerCopyright">© 2026 Bentzen. All Rights Reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#terms">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ SERVICE MODAL ══ -->
+<div class="modal-overlay" id="svcModalOverlay" onclick="closeModal()">
+  <div class="modal" id="svcModal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-body" id="modalBody"></div>
+    <a href="#contact" class="modal-cta" onclick="closeModal()">Get a Quote <i class="fas fa-arrow-right"></i></a>
+  </div>
+</div>
+
+<!-- ══ BLOG MODAL ══ -->
+<div class="modal-overlay" id="blogModalOverlay" onclick="closeBlogModal()">
+  <div class="modal modal-blog" id="blogModal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeBlogModal()"><i class="fas fa-times"></i></button>
+    <div id="blogModalContent"></div>
+  </div>
+</div>
+
+<!-- ══ ADVERTISEMENT OVERLAY ══ -->
+<div class="ad-overlay" id="adOverlay">
+  <div class="ad-container" id="adContainer">
+    <button class="ad-close-btn" id="adCloseBtn" onclick="closeAd()"><i class="fas fa-times"></i></button>
+    <div class="ad-content" id="adContent"></div>
+    <div class="ad-timer-bar"><div class="ad-timer-fill" id="adTimerFill"></div></div>
+    <div class="ad-timer-label" id="adTimerLabel">Ad closes in <span id="adTimerCount">0</span>s</div>
+  </div>
+</div>
+
+<!-- ══ CHATBOT ══ -->
+<div class="chatbot-wrap" id="chatbotWrap">
+  <button class="chatbot-toggle" id="chatbotToggle" onclick="toggleChatbot()" aria-label="Open chat">
+    <i class="fas fa-comment-dots" id="chatIcon"></i>
+    <i class="fas fa-times" id="chatClose" style="display:none"></i>
+    <span class="chatbot-badge" id="chatbotBadge">1</span>
+  </button>
+  <div class="chatbot-window" id="chatbotWindow">
+    <div class="chatbot-header">
+      <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" alt="Bentzen" class="chatbot-logo">
+      <div class="chatbot-header-info">
+        <strong>Bentzen Assistant</strong>
+        <span class="chatbot-online"><i class="fas fa-circle"></i> Online</span>
+      </div>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-suggestions" id="chatbotSuggestions"></div>
+    <div class="chatbot-input-wrap">
+      <input type="text" class="chatbot-input" id="chatbotInput" placeholder="Type your message..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+      <button class="chatbot-send" onclick="sendChatMsg()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN PANEL ══ -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-login" id="adminLogin">
+    <div class="admin-login-brand">
+      <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" alt="Bentzen">
+      <h2>Admin Panel</h2>
+    </div>
+    <div class="admin-form">
+      <div class="admin-field"><label>Username</label><input type="text" id="adminUser" placeholder="bentzen"></div>
+      <div class="admin-field"><label>Password</label><input type="password" id="adminPass" placeholder="••••••"></div>
+      <button class="admin-login-btn" onclick="doAdminLogin()">Login <i class="fas fa-arrow-right"></i></button>
+      <div class="admin-login-err" id="adminLoginErr"></div>
+    </div>
+  </div>
+  <div class="admin-panel" id="adminPanel" style="display:none">
+    <div class="admin-sidebar">
+      <div class="admin-sidebar-brand">
+        <img src="https://i.postimg.cc/tgjX9V2Y/Bentzen-Logo-modified.png" alt="Bentzen">
+        <span>Admin</span>
+      </div>
+      <nav class="admin-nav">
+        <a class="admin-nav-item active" data-tab="dashboard" onclick="switchAdminTab('dashboard',this)"><i class="fas fa-gauge"></i> Dashboard</a>
+        <a class="admin-nav-item" data-tab="content" onclick="switchAdminTab('content',this)"><i class="fas fa-edit"></i> Content</a>
+        <a class="admin-nav-item" data-tab="services" onclick="switchAdminTab('services',this)"><i class="fas fa-cog"></i> Services</a>
+        <a class="admin-nav-item" data-tab="reviews" onclick="switchAdminTab('reviews',this)"><i class="fas fa-star"></i> Reviews</a>
+        <a class="admin-nav-item" data-tab="faqs" onclick="switchAdminTab('faqs',this)"><i class="fas fa-question-circle"></i> FAQs</a>
+        <a class="admin-nav-item" data-tab="blogs" onclick="switchAdminTab('blogs',this)"><i class="fas fa-blog"></i> Blog</a>
+        <a class="admin-nav-item" data-tab="media" onclick="switchAdminTab('media',this)"><i class="fas fa-photo-film"></i> Media</a>
+        <a class="admin-nav-item" data-tab="ads" onclick="switchAdminTab('ads',this)"><i class="fas fa-ad"></i> Advertisements</a>
+        <a class="admin-nav-item" data-tab="contact" onclick="switchAdminTab('contact',this)"><i class="fas fa-address-card"></i> Contact Info</a>
+        <a class="admin-nav-item" data-tab="chatbot" onclick="switchAdminTab('chatbot',this)"><i class="fas fa-robot"></i> Chatbot</a>
+        <a class="admin-nav-item" data-tab="seo" onclick="switchAdminTab('seo',this)"><i class="fas fa-search"></i> SEO</a>
+        <a class="admin-nav-item" data-tab="analytics" onclick="switchAdminTab('analytics',this)"><i class="fas fa-chart-bar"></i> Analytics</a>
+        <a class="admin-nav-item" data-tab="footer" onclick="switchAdminTab('footer',this)"><i class="fas fa-copyright"></i> Footer</a>
+        <a class="admin-nav-item" data-tab="sliders" onclick="switchAdminTab('sliders',this)"><i class="fas fa-images"></i> Sliders</a>
+        <a class="admin-nav-item" data-tab="forms" onclick="switchAdminTab('forms',this)"><i class="fas fa-envelope-open-text"></i> Form Submissions</a>
+      </nav>
+      <button class="admin-logout" onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    </div>
+    <div class="admin-main">
+      <div class="admin-topbar">
+        <h2 id="adminTabTitle">Dashboard</h2>
+        <div class="admin-topbar-right">
+          <span class="admin-live-badge"><i class="fas fa-circle"></i> Live</span>
+          <button class="admin-publish-btn" onclick="publishChanges()"><i class="fas fa-rocket"></i> Publish Changes</button>
+        </div>
+      </div>
+      <div class="admin-content" id="adminContent"></div>
+    </div>
+  </div>
+</div>
+<button class="admin-trigger" id="adminTrigger" onclick="openAdmin()" title="Admin Panel"><i class="fas fa-lock"></i></button>
+
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
+<script type="module" src="script.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
